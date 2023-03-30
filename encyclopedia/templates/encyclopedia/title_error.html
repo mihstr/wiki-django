@@ -1,0 +1,9 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   "{{ title }}" not found
+{% endblock %}
+
+{% block body %}
+   <p class="mx-auto mt-4 p-3 w-50 text-center border border-warning bg-warning-subtle rounded">Wiki for "{{ title }}" does not exist.</p>
+{% endblock %}

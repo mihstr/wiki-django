@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">All Pages</h1>
+
+    <ul class="list-inline list-group list-group-flush w-auto ms-3 me-4">
+        {% for entry in entries %}
+            <li>
+                <div class="border border-primary-subtle rounded pt-2 pb-2 mb-2 link-primary row justify-content-between">
+                    <div class="col-4">
+                        <a href="wiki/{{ entry }}">{{ entry }}</a>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a class=""href="edit/{{ entry }}">Edit</a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

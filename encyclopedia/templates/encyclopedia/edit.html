@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Edit {{ title }}
+{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Edit {{ title }} Wiki Page</h1>
+
+<form action="{% url 'home:edit' title %}" method="POST">
+   {% csrf_token %}
+   {% for field in update_form %}
+      <label class="h5" for="{{ field.auto_id }}">{{ field.label }}</label>
+      {{ field }}
+   {% endfor %}
+   <button class="btn btn-primary ms-2" type="submit">Update {{ title }}</button>
+</form>
+
+{% endblock %}

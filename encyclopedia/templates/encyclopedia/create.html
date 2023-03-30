@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Create Wiki Page
+{% endblock %}
+
+{% block body %}
+<h1 class="mb-4">Create Wiki Page</h1>
+
+<form action="{% url 'wiki_app:create' %}" method="POST">
+   {% csrf_token %}
+   {% for field in create_form %}
+      <label class="h5" for="{{ field.auto_id }}">{{ field.label }}</label>
+      {{ field }}
+   {% endfor %}
+   <button class="btn btn-primary ms-2" type="submit">Save New Wiki Page</button>
+</form>
+
+{% endblock %}

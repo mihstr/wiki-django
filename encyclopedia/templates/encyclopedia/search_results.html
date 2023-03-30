@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Results for "{{ query }}"
+{% endblock %}
+
+{% block body %}
+   <h1 class="mb-4">Results for "{{ query }}"</h1>
+   
+   <ul class="list-inline list-group list-group-flush w-auto ms-3 me-4">
+      {% for match in matches %}
+         <li><a class="border-primary-subtle rounded mb-2 list-group-item link-primary" href="wiki/{{ match }}">{{ match }}</a></li>
+      {% endfor %}
+   </ul>
+{% endblock %}
