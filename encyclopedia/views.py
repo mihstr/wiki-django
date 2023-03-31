@@ -1,3 +1,4 @@
+from random import randint
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -110,4 +111,7 @@ def edit(request, title):
         })
 
 def random(request):
-    return render(request, "encyclopedia/random.html")
+    entries = util.list_entries()
+    i = randint(0, len(entries)-1)
+    random_entry = entries[i]
+    return redirect(f"/wiki/{random_entry}")
